@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap');
+
+body {    
+   background-image: url('../src/assets/background2.png'); 
+}
+
+input, button, textarea, h1 {
+    font:  14px Balsamiq Sans, sans-serif;
+}
+
