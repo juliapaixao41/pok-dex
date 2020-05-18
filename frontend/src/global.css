@@ -1,10 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap');
 
 body {    
-   background-image: url('../src/assets/background2.png'); 
+   background-image: url('../src/assets/pokeball.png'); 
 }
 
 input, button, textarea, h1 {
     font:  14px Balsamiq Sans, sans-serif;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+    background: #C14242;
+    border-radius: 5px;
+    padding: 0px 10px;
+
+
 }
 

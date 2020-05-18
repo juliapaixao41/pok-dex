@@ -2,15 +2,6 @@ import styled from 'styled-components';
 
 
 
-export const Header  = styled.header `
-    display: flex;
-    align-items: center;
-    margin-top: 30px;
-    background: #C14242;
-    border-radius: 5px;
-    padding: 0px 10px;
-
-`;
 
 export const Input = styled.input`
     padding: 10px 40px;
@@ -32,43 +23,40 @@ export const Button = styled.button`
     padding: 10px 20px;
     margin-left: 10px;
     background: #E1AC0E;
-    border: 2px solid palevioletred;
+    border: 1px ;
     border-radius: 4px;
     color: #FFF;
-    transition: background-color 0.5s ease;
+    
 `;
 export const Section  = styled.form `
-    width: 100%;
+    display: flex;
     max-width: 1000px;
     padding: 0 20px;
     margin: 0px auto;
-    display: grid;
+    display: grid; 
     grid-template-columns: repeat(3, 1fr);
     background: #433FBF;
-
-`;
-
-export const Ul = styled.ul`
     list-style: none;
-    
+
 `;
 
 export const Li = styled.li`
-    margin-top: 10px;
+    margin: 20px 5px;
     background: #FFF;
     padding: 20px;
-    border-radius: 8px;
     position: relative;
+    border-radius: 8px;
     width:250px;
     height: 300px;
-    right: 12px;
+    
 `;
 
 export const Imag = styled.img`
+    background: #EDEDED;
     border-radius: 8px;
-    width:240px;
+    width:200px;
     height: 190px;    
-    left: 10%;
+    margin-left: 25px;
 `;
 
 export const Numero = styled.h1`
