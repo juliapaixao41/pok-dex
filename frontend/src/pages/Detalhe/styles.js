@@ -7,7 +7,7 @@ export const Input = styled.input`
     border: none;
     border-radius: 3px;
     font-size: 15px;
-    
+
 `;
 
 export const Logo = styled.img`
@@ -33,7 +33,7 @@ export const Section  = styled.div `
     margin: 0 auto;
     background: #E5D604;
     list-style: none;
-    display: grid; 
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
 
 `;
@@ -60,13 +60,13 @@ export const Titulo = styled.h1`
     font-size: 30px;
     margin-top: 5px;
     margin-left: 250px;
-   
+
 `;
 
 export const Habilidade = styled.h1`
     margin-top: 20px ;
     font-size: 18px;
-    padding: 4px;  
+    padding: 4px;
     width:500px;
     height: 200px;
     margin-left: 25px;
@@ -77,7 +77,6 @@ export const Peso = styled.h1`
     font-size: 15px;
     padding: 4px;
     margin-left: 25px;
-    margin-top: 75px ;
 `;
 
 export const Altura = styled.h1`
@@ -92,7 +91,23 @@ export const Voltar = styled.button`
     background: #E1AC0E;
     border: 1px ;
     border-radius: 4px;
-    color: #FFF;  
+    color: #FFF;
+`;
+
+export const Imag = styled.img`
+    border-radius: 8px;
+    width:190px;
+    height: 200px;
+    margin-left: 400px;
+
+`;
+
+export const Div = styled.div`
+    display: grid;
+    border-radius: 8px;
+    width:130px;
+    height: 5px;
+    margin-left: 20px;
 `;
 
 

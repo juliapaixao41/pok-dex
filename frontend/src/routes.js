@@ -6,13 +6,12 @@ import Detalhe from './pages/Detalhe';
 
 export default function Routes(){
 
-   
 
     return(
     <BrowserRouter>
         <Switch>
             <Route path="/" exact   component={Lista} />
-            <Route path="/detalhe" component={Detalhe} />
+            <Route path="/detalhe/:id" component={Detalhe} />
         </Switch>
     </BrowserRouter>
     );
