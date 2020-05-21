@@ -1,71 +1,86 @@
-import React,  { useState, useEffect } from 'react';
-import { Section, Input, Logo, Imag, Button, Li, Numero, Nome} from './styles';
+import React,  { useState, useEffect, Fragment } from 'react';
 import axios from 'axios';
+import {useHistory } from 'react-router-dom';
+import { Section, Input, 
+         Logo, Imag, 
+         Li, Numero, 
+         Nome,  Detalhe } from './styles';
 
 import logoImg from '../../assets/logo.jpg';
 
 
-
-
 export default function Lista () {
+
     const [pokemons, setPokemons] = useState([]);
-    const [busca, setBusca] =  useState('');
-    const [buscaResults, setBuscaResults] = useState([]);
+    const [busca,  setBusca]  = useState('');
+    const [filteredPoke, setFilteredPoke ] = useState([])
+    const history = useHistory();
 
 
+    const handleChange = event => {
+        setBusca(event.target.value);
+      };
 
-  
-    const encontrePokemons = () => {
-        axios.get(`https://pokeapi.co/api/v2/pokemon/2/` )
-        .then(response => {
-            console.log(response)
-            setPokemons(response.data);
-            
-        })
+    function handleDetalhe () {
+        history.push('/detalhe');
     }
 
- 
-    const handleChange = e => {
-        setBusca(e.target.value);
-    };
-   useEffect(() => {
-      const results = pokemons.filter(person =>
-        person.includes(busca)  
-        );
-    encontrePokemons()
 
-    }, []);
+    useEffect(() => {
+        async function loadPokemons() {
+         const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/?limit=42&offset=0`);
+         const data = response.data.results.map(pokemon => ({
+           ...pokemon,
+            }));
+     
+         setPokemons(data)
+        }
+     
+        loadPokemons()
+      }, [])
+
+     
+   
+    useEffect(() => {
+        setFilteredPoke( pokemons.filter( pokemon => {
+            return pokemon.name.toLowerCase().includes( busca.toLowerCase() )   
+         })
+        )
+        
+    }, [busca, pokemons]);
 
 
-    return (
-        <div >
-            <React.Fragment>
-                <header>
-                    <Logo src={logoImg} alt="Logo"/>
-                    
-                    <Input placeholder="Nome Pokemon" type="text" 
-                        value={busca}
-                        onChange={handleChange}/>
-                    <Button onChange={ encontrePokemons} >Buscar</Button>
-                </header>
+
+      
+
+
+    return  (
+
+   
+        <Fragment>
+            <header>
+                <Logo src={logoImg} alt="Logo"/>
+                <Input placeholder="Search" type="text" value={busca} onChange={handleChange}/>
+            </header>
                 
                 <Section >
-                {buscaResults.map((item, index)  => (
-                    <Section > 
-                    <Li key={ index }>
-                        <Imag src={"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + item.id + ".png"} alt="pokemon"/>
-                        <Numero>N°: {item}</Numero>
-                        <Nome>{item}  </Nome>
-                    </Li>         
+              
+                {filteredPoke.map((pokemon, index ) => (
+       
+                        <Section key={ index }> 
+                            <Li >
+                                <Imag src={"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + (index + 1) + ".png"} alt="pokemon"/>
+                                <Numero >N°: {index + 1}</Numero>
+                                <Nome>{pokemon.name}  </Nome>
+                                <Detalhe  onClick={() => handleDetalhe( index + 1)} >Detalhes</Detalhe> 
+                              
+
+                            </Li>         
+                        </Section>
+                    ))} 
                 </Section>
-                ))} 
-                    
-                </Section>
-            </React.Fragment>
-        </div>
+        </Fragment>
+        
     );
 }
-
-
-
 

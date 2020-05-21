@@ -25,10 +25,9 @@ export const Button = styled.button`
     background: #E1AC0E;
     border: 1px ;
     border-radius: 4px;
-    color: #FFF;
-    
+    color: #FFF;  
 `;
-export const Section  = styled.form `
+export const Section  = styled.div `
     display: flex;
     max-width: 1000px;
     padding: 0 20px;
@@ -40,7 +39,7 @@ export const Section  = styled.form `
 
 `;
 
-export const Li = styled.li`
+export const Li = styled.div`
     margin: 20px 5px;
     background: #FFF;
     padding: 20px;
@@ -68,11 +67,18 @@ export const Numero = styled.h1`
 
 export const Nome = styled(Numero)`
     font-size: 24px;
-    margin-top: 25px;
+    margin-top: 15px;
     color: #353535;
 `;
 
-
+export const Detalhe = styled.button`
+    padding: 7px 10px;
+    margin-left: 65%;
+    background: #E1AC0E;
+    border: 1px ;
+    border-radius: 4px;
+    color: #FFF;  
+`;
 
 
 

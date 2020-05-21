@@ -1,50 +1,66 @@
-import React, { useState, useEffect } from 'react';
-import { Section, Input, Logo, Imag, Button, Ul, Li, Numero, Nome} from './styles';
+import React, { useState, useEffect} from 'react';
 import axios from 'axios';
+import {useHistory } from 'react-router-dom';
+import { Section,     Logo,             
+         Numero,     Descricao,  
+         Titulo,     Habilidade, 
+         Peso,       Altura,     
+         Voltar      } from './styles';
 
 import logoImg from '../../assets/logo.jpg';
 
-
 export default function Detalhe () {
-    const [pokedex, setPokedex] = useState([]);
-    const [pokemons, setPokemons] = useState({});
-
-    useEffect( () => {
-        encontrePokemons()
-    }, []);
+    const [pokemon, setPokemon] = useState([]);
+    const history = useHistory();
+  
+    
+    function handleVoltar(){
+        history.push('/');
+    };
 
    
 
-    const encontrePokemons = () => {
-        axios.get('https://pokeapi.co/api/v2/pokemon/3/' )
-        .then(response => {
-            console.log(response.data);
-            setPokemons(response.data);
-        })
-    }
-      
-    return (
+    useEffect(() => {
+        const fetch = async (id) => {
+            const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/1/` )
+            setPokemon(res.data);
+        }
+
+        fetch();
+    }, []);
+
+    console.log(pokemon);
+  
+
+
+        return (
         <div >
             <React.Fragment>
                 <header>
                     <Logo src={logoImg} alt="Logo"/>
-                    <Input placeholder="Nome Pokemon" type="text"/>
-                    <Button as="a" href="/">Buscar</Button>
+                    
                 </header>
-           
-                <Section > 
-                    <Li >
-                        <Imag src={"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + pokemons.id + ".png"} alt="pokemon"/>
-                        <Numero>N°0001</Numero>
-                        <Nome>{pokemons.name}</Nome>
-                    </Li>         
+                
+                <Section>
+                    <div>
+                
+                        <Descricao >
+                            <Voltar onClick={handleVoltar} >Voltar</Voltar> 
+                            <Titulo>{pokemon.name}</Titulo>
+                            <Numero>N°: {pokemon.id}</Numero>
+                            <Habilidade>Skills: </Habilidade>
+                            <Peso>Peso: {pokemon.weight}kg</Peso>
+                            <Altura>Altura: {pokemon.height} m</Altura>
+                        </Descricao> 
+                    
+                    </div> 
                 </Section>
-        
             </React.Fragment>
         </div>
     );
-
 }
+
+
 
 
 

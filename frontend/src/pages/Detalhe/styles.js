@@ -25,48 +25,74 @@ export const Button = styled.button`
     color: #FFF;
     transition: background-color 0.5s ease;
 `;
-export const Section  = styled.form `
-    display: grid;
+export const Section  = styled.div `
+    display: flex;
     width: 100%;
     max-width: 1000px;
     padding: 0 20px;
     margin: 0 auto;
     background: #E5D604;
     list-style: none;
+    display: grid; 
+    grid-template-columns: repeat(2, 1fr);
 
 `;
 
-export const Li = styled.li`
-    margin-top: 30px;
-    background: #FFF;
-    padding: 20px;
-    border-radius: 8px;
-    position: relative;
-    width:700px;
-    height: 450px;
-    left: 125px;
-`;
-
-export const Imag = styled.img`
-    margin-top: 20px;
-    border-radius: 8px;
-    width:300px;
-    height: 300px;    
-    left: 10%;
-    background: #E5E5E5;
-`;
 
 export const Numero = styled.h1`
-    margin-top: 7px;
+    margin-top:9px;
     margin-left: 10px;
     font-size: 15px;
     color: #565656;
 `;
 
-export const Nome = styled(Numero)`
-    font-size: 24px;
-    margin-top: 25px;
-    color: #353535;
+
+export const Descricao = styled.div`
+    margin: 35px  5px;
+    padding: 20px ;
+    width:600px;
+    height: 490px;
+    margin-left: 30%;
+    background: #FFF;
+`;
+
+export const Titulo = styled.h1`
+    font-size: 30px;
+    margin-top: 5px;
+    margin-left: 250px;
+   
+`;
+
+export const Habilidade = styled.h1`
+    margin-top: 20px ;
+    font-size: 18px;
+    padding: 4px;  
+    width:500px;
+    height: 200px;
+    margin-left: 25px;
+    background: #FFF;
+`;
+
+export const Peso = styled.h1`
+    font-size: 15px;
+    padding: 4px;
+    margin-left: 25px;
+    margin-top: 75px ;
+`;
+
+export const Altura = styled.h1`
+    font-size: 15px;
+    padding: 4px;
+    margin-left: 26px;
+`;
+
+export const Voltar = styled.button`
+    padding: 7px 10px;
+    margin-left: 5px;
+    background: #E1AC0E;
+    border: 1px ;
+    border-radius: 4px;
+    color: #FFF;  
 `;
 
 
